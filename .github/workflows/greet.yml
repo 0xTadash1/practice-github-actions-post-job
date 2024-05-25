@@ -1,0 +1,27 @@
+name: Greet Workflow
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Your name"
+        required: false
+        default: "GitHub Actions"
+      usingEmoji:
+        description: "Use emoji?"
+        required: false
+        default: no
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greet
+        run: echo "Hello ${{ github.event.inputs.name }}!"
+
+      - name: Greet with emoji
+        if: ${{ github.event.inputs.usingEmoji }}
+        run: echo "👋 ${{ github.event.inputs.name }}!"
