@@ -13,7 +13,7 @@ on:
       usingEmoji:
         description: "Use emoji?"
         required: false
-        default: no
+        default: y
 
 jobs:
   greet:
@@ -46,6 +46,31 @@ jobs:
         uses: ./.github/actions/pre-main-post
         with:
           usingEmoji: Yes
+
+      - name: 'Pre-Main-Post (usingEmoji: 1)'
+        uses: ./.github/actions/pre-main-post
+        with:
+          usingEmoji: 1
+
+      - name: 'Pre-Main-Post (usingEmoji: 0)'
+        uses: ./.github/actions/pre-main-post
+        with:
+          usingEmoji: 0
+
+      - name: "Pre-Main-Post (usingEmoji: '')"
+        uses: ./.github/actions/pre-main-post
+        with:
+          usingEmoji: ''
+
+      - name: 'Pre-Main-Post (usingEmoji: null)'
+        uses: ./.github/actions/pre-main-post
+        with:
+          usingEmoji: null
+
+      - name: 'Pre-Main-Post (usingEmoji: undefined)'
+        uses: ./.github/actions/pre-main-post
+        with:
+          usingEmoji: undefined
 
       - name: Greet
         run: echo "Hello ${{ github.event.inputs.name }}!"
