@@ -31,7 +31,7 @@ runs:
       if: ${{ inputs.usingEmoji == 'true' }}
       shell: bash
       run: |
-        echo "\${{ inputs.usingEmoji }} == 'true'"
+        echo "Equals 'true': ${{ inputs.usingEmoji }} == 'true'"
 
     # - name: Equals `'True'`
     #   if: ${{ inputs.usingEmoji == 'True' }}
@@ -43,7 +43,7 @@ runs:
       if: ${{ inputs.usingEmoji == true }}
       shell: bash
       run: |
-        echo "\${{ inputs.usingEmoji }} == true"
+        echo "Equals true: ${{ inputs.usingEmoji }} == true"
 
     # - name: Equals `True`
     #   if: ${{ inputs.usingEmoji == True }}
