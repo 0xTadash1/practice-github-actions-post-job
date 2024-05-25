@@ -1,0 +1,70 @@
+name: Pre-Main-Post Action
+
+inputs:
+  usingEmoji:
+    description: "Use emoji?"
+    required: true
+    type: boolean
+
+  name:
+    description: "Your name"
+    required: false
+    default: "GitHub Actions"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Pre
+      run: |
+        echo "Pre:"
+        echo "name = ${{ inputs.name }}"
+        echo "usingEmoji = ${{ inputs.usingEmoji }}"
+
+    - name: Equals `'true'`
+      if: ${{ inputs.usingEmoji == 'true' }}
+      run: |
+        echo "\${{ inputs.usingEmoji }} == 'true'"
+
+    - name: Equals `'True'`
+      if: ${{ inputs.usingEmoji == 'True' }}
+      run: |
+        echo "\${{ inputs.usingEmoji }} == 'True'"
+
+    - name: Equals `true`
+      if: ${{ inputs.usingEmoji == true }}
+      run: |
+        echo "\${{ inputs.usingEmoji }} == true"
+
+    - name: Equals `True`
+      if: ${{ inputs.usingEmoji == True }}
+      run: |
+        echo "\${{ inputs.usingEmoji }} == True"
+
+    - name: Equals `'yes'`
+      if: ${{ inputs.usingEmoji == 'yes' }}
+      run: |
+        echo "\${{ inputs.usingEmoji }} == 'yes'"
+
+    - name: Equals `'Yes'`
+      if: ${{ inputs.usingEmoji == 'Yes' }}
+      run: |
+        echo "\${{ inputs.usingEmoji }} == 'Yes'"
+
+    - name: Equals `yes`
+      if: ${{ inputs.usingEmoji == yes }}
+      run: |
+        echo "\${{ inputs.usingEmoji }} == yes"
+
+    - name: Equals `Yes`
+      if: ${{ inputs.usingEmoji == Yes }}
+      run: |
+        echo "\${{ inputs.usingEmoji }} == Yes"
+
+    - name: Main
+      run: |
+        echo "Main: Hello ${{ inputs.name }}!"
+
+    - name: Post
+      if: ${{ inputs.usingEmoji }}
+      run: |
+        echo "Post: 👋 ${{ inputs.name }}!"
