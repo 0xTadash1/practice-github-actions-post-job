@@ -39,11 +39,11 @@ runs:
     #   run: |
     #     echo "\${{ inputs.usingEmoji }} == 'True'"
 
-    # - name: Equals `true`
-    #   if: ${{ inputs.usingEmoji == true }}
-    #   shell: bash
-    #   run: |
-    #     echo "\${{ inputs.usingEmoji }} == true"
+    - name: Equals `true`
+      if: ${{ inputs.usingEmoji == true }}
+      shell: bash
+      run: |
+        echo "\${{ inputs.usingEmoji }} == true"
 
     # - name: Equals `True`
     #   if: ${{ inputs.usingEmoji == True }}
