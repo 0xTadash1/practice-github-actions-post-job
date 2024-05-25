@@ -52,17 +52,17 @@ runs:
     #   run: |
     #     echo "Equals True: ${{ inputs.usingEmoji }} == True"
 
-    # - name: Equals `'yes'`
-    #   if: ${{ inputs.usingEmoji == 'yes' }}
-    #   shell: bash
-    #   run: |
-    #     echo "\${{ inputs.usingEmoji }} == 'yes'"
+    - name: Equals `'yes'`
+      if: ${{ inputs.usingEmoji == 'yes' }}
+      shell: bash
+      run: |
+        echo "\${{ inputs.usingEmoji }} == 'yes'"
 
-    # - name: Equals `'Yes'`
-    #   if: ${{ inputs.usingEmoji == 'Yes' }}
-    #   shell: bash
-    #   run: |
-    #     echo "\${{ inputs.usingEmoji }} == 'Yes'"
+    - name: Equals `'Yes'`
+      if: ${{ inputs.usingEmoji == 'Yes' }}
+      shell: bash
+      run: |
+        echo "\${{ inputs.usingEmoji }} == 'Yes'"
 
     # - name: Equals `yes`
     #   if: ${{ inputs.usingEmoji == yes }}
