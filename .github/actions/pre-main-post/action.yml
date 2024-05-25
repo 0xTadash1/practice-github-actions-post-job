@@ -56,25 +56,13 @@ runs:
       if: ${{ inputs.usingEmoji == 'yes' }}
       shell: bash
       run: |
-        echo "\${{ inputs.usingEmoji }} == 'yes'"
+        echo "Equals 'yes': ${{ inputs.usingEmoji }} == 'yes'"
 
     - name: Equals `'Yes'`
       if: ${{ inputs.usingEmoji == 'Yes' }}
       shell: bash
       run: |
-        echo "\${{ inputs.usingEmoji }} == 'Yes'"
-
-    # - name: Equals `yes`
-    #   if: ${{ inputs.usingEmoji == yes }}
-    #   shell: bash
-    #   run: |
-    #     echo "\${{ inputs.usingEmoji }} == yes"
-
-    # - name: Equals `Yes`
-    #   if: ${{ inputs.usingEmoji == Yes }}
-    #   shell: bash
-    #   run: |
-    #     echo "\${{ inputs.usingEmoji }} == Yes"
+        echo "Equals 'Yes': ${{ inputs.usingEmoji }} == 'Yes'"
 
     - name: Main
       shell: bash
