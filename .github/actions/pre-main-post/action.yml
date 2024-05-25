@@ -64,6 +64,60 @@ runs:
       run: |
         echo "Equals 'Yes': ${{ inputs.usingEmoji }} == 'Yes'"
 
+    - name: Equals `'y'`
+      if: ${{ inputs.usingEmoji == 'y' }}
+      shell: bash
+      run: |
+        echo "Equals 'y': ${{ inputs.usingEmoji }} == 'y'"
+
+    - name: Equals `'Y'`
+      if: ${{ inputs.usingEmoji == 'Y' }}
+      shell: bash
+      run: |
+        echo "Equals 'Y': ${{ inputs.usingEmoji }} == 'Y'"
+
+    - name: Equals `1`
+      if: ${{ inputs.usingEmoji == 1 }}
+      shell: bash
+      run: |
+        echo "Equals 1: ${{ inputs.usingEmoji }} == 1"
+
+    - name: Equals `0`
+      if: ${{ inputs.usingEmoji == 0 }}
+      shell: bash
+      run: |
+        echo "Equals 0: ${{ inputs.usingEmoji }} == 0"
+
+    - name: Equals `null`
+      if: ${{ inputs.usingEmoji == null }}
+      shell: bash
+      run: |
+        echo "Equals null: ${{ inputs.usingEmoji }} == null"
+
+    - name: Equals `'null'`
+      if: ${{ inputs.usingEmoji == 'null' }}
+      shell: bash
+      run: |
+        echo "Equals 'null': ${{ inputs.usingEmoji }} == 'null'"
+
+    - name: Equals `''`
+      if: ${{ inputs.usingEmoji == '' }}
+      shell: bash
+      run: |
+        echo "Equals '': ${{ inputs.usingEmoji }} == ''"
+
+    - name: Equals `undefined`
+      if: ${{ inputs.usingEmoji == undefined }}
+      shell: bash
+      run: |
+        echo "Equals undefined: ${{ inputs.usingEmoji }} == undefined"
+
+    - name: Equals `'undefined'`
+      if: ${{ inputs.usingEmoji == 'undefined' }}
+      shell: bash
+      run: |
+        echo "Equals 'undefined': ${{ inputs.usingEmoji }} == 'undefined'"
+
     - name: Main
       shell: bash
       run: |
