@@ -67,11 +67,6 @@ jobs:
         with:
           usingEmoji: null
 
-      - name: 'Pre-Main-Post (usingEmoji: undefined)'
-        uses: ./.github/actions/pre-main-post
-        with:
-          usingEmoji: undefined
-
       - name: Greet
         run: echo "Hello ${{ github.event.inputs.name }}!"
 

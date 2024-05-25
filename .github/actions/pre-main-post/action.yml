@@ -106,12 +106,6 @@ runs:
       run: |
         echo "Equals '': ${{ inputs.usingEmoji }} == ''"
 
-    - name: Equals `undefined`
-      if: ${{ inputs.usingEmoji == undefined }}
-      shell: bash
-      run: |
-        echo "Equals undefined: ${{ inputs.usingEmoji }} == undefined"
-
     - name: Equals `'undefined'`
       if: ${{ inputs.usingEmoji == 'undefined' }}
       shell: bash
