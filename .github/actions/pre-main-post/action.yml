@@ -45,11 +45,12 @@ runs:
       run: |
         echo "Equals true: ${{ inputs.usingEmoji }} == true"
 
-    - name: Equals `True`
-      if: ${{ inputs.usingEmoji == True }}
-      shell: bash
-      run: |
-        echo "Equals True: ${{ inputs.usingEmoji }} == True"
+    # Causes error: `Error: Unrecognized named-value: 'True'`
+    # - name: Equals `True`
+    #   if: ${{ inputs.usingEmoji == True }}
+    #   shell: bash
+    #   run: |
+    #     echo "Equals True: ${{ inputs.usingEmoji }} == True"
 
     # - name: Equals `'yes'`
     #   if: ${{ inputs.usingEmoji == 'yes' }}
