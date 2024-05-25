@@ -19,6 +19,34 @@ jobs:
   greet:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: 'Pre-Main-Post (usingEmoji: inputs)'
+        uses: ./.github/actions/pre-main-post
+        with:
+          usingEmoji: ${{ github.event.inputs.usingEmoji }}
+
+      - name: 'Pre-Main-Post (usingEmoji: true)'
+        uses: ./.github/actions/pre-main-post
+        with:
+          usingEmoji: true
+      
+      - name: 'Pre-Main-Post (usingEmoji: True)'
+        uses: ./.github/actions/pre-main-post
+        with:
+          usingEmoji: True
+
+      - name: 'Pre-Main-Post (usingEmoji: yes)'
+        uses: ./.github/actions/pre-main-post
+        with:
+          usingEmoji: yes
+      
+      - name: 'Pre-Main-Post (usingEmoji: Yes)'
+        uses: ./.github/actions/pre-main-post
+        with:
+          usingEmoji: Yes
+
       - name: Greet
         run: echo "Hello ${{ github.event.inputs.name }}!"
 
