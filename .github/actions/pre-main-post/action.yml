@@ -15,6 +15,7 @@ runs:
   using: "composite"
   steps:
     - name: Pre
+      shell: bash
       run: |
         echo "Pre:"
         echo "name = ${{ inputs.name }}"
@@ -22,49 +23,59 @@ runs:
 
     - name: Equals `'true'`
       if: ${{ inputs.usingEmoji == 'true' }}
+      shell: bash
       run: |
         echo "\${{ inputs.usingEmoji }} == 'true'"
 
     - name: Equals `'True'`
       if: ${{ inputs.usingEmoji == 'True' }}
+      shell: bash
       run: |
         echo "\${{ inputs.usingEmoji }} == 'True'"
 
     - name: Equals `true`
       if: ${{ inputs.usingEmoji == true }}
+      shell: bash
       run: |
         echo "\${{ inputs.usingEmoji }} == true"
 
     - name: Equals `True`
       if: ${{ inputs.usingEmoji == True }}
+      shell: bash
       run: |
         echo "\${{ inputs.usingEmoji }} == True"
 
     - name: Equals `'yes'`
       if: ${{ inputs.usingEmoji == 'yes' }}
+      shell: bash
       run: |
         echo "\${{ inputs.usingEmoji }} == 'yes'"
 
     - name: Equals `'Yes'`
       if: ${{ inputs.usingEmoji == 'Yes' }}
+      shell: bash
       run: |
         echo "\${{ inputs.usingEmoji }} == 'Yes'"
 
     - name: Equals `yes`
       if: ${{ inputs.usingEmoji == yes }}
+      shell: bash
       run: |
         echo "\${{ inputs.usingEmoji }} == yes"
 
     - name: Equals `Yes`
       if: ${{ inputs.usingEmoji == Yes }}
+      shell: bash
       run: |
         echo "\${{ inputs.usingEmoji }} == Yes"
 
     - name: Main
+      shell: bash
       run: |
         echo "Main: Hello ${{ inputs.name }}!"
 
     - name: Post
       if: ${{ inputs.usingEmoji }}
+      shell: bash
       run: |
         echo "Post: 👋 ${{ inputs.name }}!"
