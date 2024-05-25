@@ -21,29 +21,35 @@ runs:
         echo "name = ${{ inputs.name }}"
         echo "usingEmoji = ${{ inputs.usingEmoji }}"
 
-    - name: Equals `'true'`
-      if: ${{ inputs.usingEmoji == 'true' }}
+    - name: No Explicit Equals
+      if: ${{ inputs.usingEmoji }}
       shell: bash
       run: |
-        echo "\${{ inputs.usingEmoji }} == 'true'"
+        echo "No Explicit Equals: ${{ inputs.usingEmoji }}"
 
-    - name: Equals `'True'`
-      if: ${{ inputs.usingEmoji == 'True' }}
-      shell: bash
-      run: |
-        echo "\${{ inputs.usingEmoji }} == 'True'"
+    # - name: Equals `'true'`
+    #   if: ${{ inputs.usingEmoji == 'true' }}
+    #   shell: bash
+    #   run: |
+    #     echo "\${{ inputs.usingEmoji }} == 'true'"
 
-    - name: Equals `true`
-      if: ${{ inputs.usingEmoji == true }}
-      shell: bash
-      run: |
-        echo "\${{ inputs.usingEmoji }} == true"
+    # - name: Equals `'True'`
+    #   if: ${{ inputs.usingEmoji == 'True' }}
+    #   shell: bash
+    #   run: |
+    #     echo "\${{ inputs.usingEmoji }} == 'True'"
 
-    - name: Equals `True`
-      if: ${{ inputs.usingEmoji == True }}
-      shell: bash
-      run: |
-        echo "\${{ inputs.usingEmoji }} == True"
+    # - name: Equals `true`
+    #   if: ${{ inputs.usingEmoji == true }}
+    #   shell: bash
+    #   run: |
+    #     echo "\${{ inputs.usingEmoji }} == true"
+
+    # - name: Equals `True`
+    #   if: ${{ inputs.usingEmoji == True }}
+    #   shell: bash
+    #   run: |
+    #     echo "\${{ inputs.usingEmoji }} == True"
 
     - name: Equals `'yes'`
       if: ${{ inputs.usingEmoji == 'yes' }}
