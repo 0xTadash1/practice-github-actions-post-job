@@ -31,7 +31,7 @@ jobs:
         uses: ./.github/actions/pre-main-post
         with:
           usingEmoji: true
-      
+
       - name: 'Pre-Main-Post (usingEmoji: True)'
         uses: ./.github/actions/pre-main-post
         with:
@@ -41,11 +41,31 @@ jobs:
         uses: ./.github/actions/pre-main-post
         with:
           usingEmoji: yes
-      
+
       - name: 'Pre-Main-Post (usingEmoji: Yes)'
         uses: ./.github/actions/pre-main-post
         with:
           usingEmoji: Yes
+
+      - name: 'Pre-Main-Post (usingEmoji: on)'
+        uses: ./.github/actions/pre-main-post
+        with:
+          usingEmoji: on
+
+      - name: 'Pre-Main-Post (usingEmoji: Ob)'
+        uses: ./.github/actions/pre-main-post
+        with:
+          usingEmoji: On
+
+      - name: 'Pre-Main-Post (usingEmoji: off)'
+        uses: ./.github/actions/pre-main-post
+        with:
+          usingEmoji: off
+
+      - name: 'Pre-Main-Post (usingEmoji: Off)'
+        uses: ./.github/actions/pre-main-post
+        with:
+          usingEmoji: Off
 
       - name: 'Pre-Main-Post (usingEmoji: 1)'
         uses: ./.github/actions/pre-main-post
