@@ -20,11 +20,6 @@ runs:
         : "name = ${{ inputs.name }}"
         : "usingEmoji = ${{ inputs.usingEmoji }}"
 
-    - name: Convert to Boolean
-      shell: bash
-      run: |
-        : "Boolean: ${{ Boolean(inputs.usingEmoji) }}"
-
     - name: Convert to JSON
       shell: bash
       run: |
