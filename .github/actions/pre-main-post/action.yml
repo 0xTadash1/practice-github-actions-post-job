@@ -14,111 +14,127 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Pre
+    - name: List inputs
       shell: bash
       run: |
-        echo "Pre:"
-        echo "name = ${{ inputs.name }}"
-        echo "usingEmoji = ${{ inputs.usingEmoji }}"
+        : "name = ${{ inputs.name }}"
+        : "usingEmoji = ${{ inputs.usingEmoji }}"
 
-    - name: No Explicit Equals
+    - name: Convert to Boolean
+      shell: bash
+      run: |
+        : "Boolean: ${{ Boolean(inputs.usingEmoji) }}"
+
+    - name: Convert to JSON
+      shell: bash
+      run: |
+        : "JSON: ${{ toJson(inputs.usingEmoji) }}"
+
+    - name: When truthy
       if: ${{ inputs.usingEmoji }}
       shell: bash
       run: |
-        echo "No Explicit Equals: ${{ inputs.usingEmoji }}"
+        : "When truthy: ${{ inputs.usingEmoji }}"
 
-    - name: Equals `'true'`
+    - name: When `'true'`
       if: ${{ inputs.usingEmoji == 'true' }}
       shell: bash
       run: |
-        echo "Equals 'true': ${{ inputs.usingEmoji }} == 'true'"
+        : "When 'true': ${{ inputs.usingEmoji }}"
 
-    - name: Equals `'True'`
+    - name: When `'True'`
       if: ${{ inputs.usingEmoji == 'True' }}
       shell: bash
       run: |
-        echo "Equals 'True': ${{ inputs.usingEmoji }} == 'True'"
+        : "When 'True': ${{ inputs.usingEmoji }}"
 
-    - name: Equals `true`
+    - name: When `true`
       if: ${{ inputs.usingEmoji == true }}
       shell: bash
       run: |
-        echo "Equals true: ${{ inputs.usingEmoji }} == true"
+        : "When true: ${{ inputs.usingEmoji }}"
 
     # Causes error: `Error: Unrecognized named-value: 'True'`
-    # - name: Equals `True`
+    # - name: When `True`
     #   if: ${{ inputs.usingEmoji == True }}
     #   shell: bash
     #   run: |
-    #     echo "Equals True: ${{ inputs.usingEmoji }} == True"
+    #     : "When True: ${{ inputs.usingEmoji }}"
 
-    - name: Equals `'yes'`
+    - name: When `'yes'`
       if: ${{ inputs.usingEmoji == 'yes' }}
       shell: bash
       run: |
-        echo "Equals 'yes': ${{ inputs.usingEmoji }} == 'yes'"
+        : "When 'yes': ${{ inputs.usingEmoji }}"
 
-    - name: Equals `'Yes'`
+    - name: When `'Yes'`
       if: ${{ inputs.usingEmoji == 'Yes' }}
       shell: bash
       run: |
-        echo "Equals 'Yes': ${{ inputs.usingEmoji }} == 'Yes'"
+        : "When 'Yes': ${{ inputs.usingEmoji }}"
 
-    - name: Equals `'y'`
+    - name: When `'y'`
       if: ${{ inputs.usingEmoji == 'y' }}
       shell: bash
       run: |
-        echo "Equals 'y': ${{ inputs.usingEmoji }} == 'y'"
+        : "When 'y': ${{ inputs.usingEmoji }}"
 
-    - name: Equals `'Y'`
+    - name: When `'Y'`
       if: ${{ inputs.usingEmoji == 'Y' }}
       shell: bash
       run: |
-        echo "Equals 'Y': ${{ inputs.usingEmoji }} == 'Y'"
+        : "When 'Y': ${{ inputs.usingEmoji }}"
 
-    - name: Equals `1`
+    - name: When `'on'`
+      if: ${{ inputs.usingEmoji == 'on' }}
+      shell: bash
+      run: |
+        : "When 'on': ${{ inputs.usingEmoji }}"
+
+    - name: When `'On'`
+      if: ${{ inputs.usingEmoji == 'On' }}
+      shell: bash
+      run: |
+        : "When 'On': ${{ inputs.usingEmoji }}"
+
+    - name: When `1`
       if: ${{ inputs.usingEmoji == 1 }}
       shell: bash
       run: |
-        echo "Equals 1: ${{ inputs.usingEmoji }} == 1"
+        : "When 1: ${{ inputs.usingEmoji }}"
 
-    - name: Equals `0`
+    - name: When `0`
       if: ${{ inputs.usingEmoji == 0 }}
       shell: bash
       run: |
-        echo "Equals 0: ${{ inputs.usingEmoji }} == 0"
+        : "When 0: ${{ inputs.usingEmoji }}"
 
-    - name: Equals `null`
+    - name: When `null`
       if: ${{ inputs.usingEmoji == null }}
       shell: bash
       run: |
-        echo "Equals null: ${{ inputs.usingEmoji }} == null"
+        : "When null: ${{ inputs.usingEmoji }}"
 
-    - name: Equals `'null'`
+    - name: When `'null'`
       if: ${{ inputs.usingEmoji == 'null' }}
       shell: bash
       run: |
-        echo "Equals 'null': ${{ inputs.usingEmoji }} == 'null'"
+        : "When 'null': ${{ inputs.usingEmoji }}"
 
-    - name: Equals `''`
+    - name: When `''`
       if: ${{ inputs.usingEmoji == '' }}
       shell: bash
       run: |
-        echo "Equals '': ${{ inputs.usingEmoji }} == ''"
+        : "When '': ${{ inputs.usingEmoji }}"
 
-    - name: Equals `'undefined'`
-      if: ${{ inputs.usingEmoji == 'undefined' }}
+    - name: When `NaN`
+      if: ${{ inputs.usingEmoji == NaN }}
       shell: bash
       run: |
-        echo "Equals 'undefined': ${{ inputs.usingEmoji }} == 'undefined'"
+        : "When NaN: ${{ inputs.usingEmoji }}"
 
-    - name: Main
+    - name: When `'NaN'`
+      if: ${{ inputs.usingEmoji == 'NaN' }}
       shell: bash
       run: |
-        echo "Main: Hello ${{ inputs.name }}!"
-
-    - name: Post
-      if: ${{ inputs.usingEmoji }}
-      shell: bash
-      run: |
-        echo "Post: 👋 ${{ inputs.name }}!"
+        : "When 'NaN': ${{ inputs.usingEmoji }}"
