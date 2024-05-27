@@ -1,0 +1,89 @@
+name: Boolean Comparison Action
+
+inputs:
+  boolValue:
+    required: true
+    type: boolean
+
+runs:
+  using: "composite"
+  steps:
+    - shell: bash
+      run: ": boolValue = ${{ inputs.boolValue }}"
+
+    - shell: bash
+      run: ": JSON: ${{ toJson(inputs.boolValue) }}"
+
+    - if: ${{ inputs.boolValue }}
+      shell: bash
+      run: ": When truthy: ${{ inputs.boolValue }}"
+
+    - if: ${{ inputs.boolValue == 'true' }}
+      shell: bash
+      run: ": When 'true': ${{ inputs.boolValue }}"
+
+    - if: ${{ inputs.boolValue == 'True' }}
+      shell: bash
+      run: ": When 'True': ${{ inputs.boolValue }}"
+
+    - if: ${{ inputs.boolValue == true }}
+      shell: bash
+      run: ": When true: ${{ inputs.boolValue }}"
+
+    # Causes error: `Error: Unrecognized named-value: 'True'`
+    # - name: When `True`
+    #   if: ${{ inputs.boolValue == True }}
+    #   shell: bash
+    #   run: "#    : "When True: ${{ inputs.boolValue }}"
+
+    - if: ${{ inputs.boolValue == 'yes' }}
+      shell: bash
+      run: ": When 'yes': ${{ inputs.boolValue }}"
+
+    - if: ${{ inputs.boolValue == 'Yes' }}
+      shell: bash
+      run: ": When 'Yes': ${{ inputs.boolValue }}"
+
+    - if: ${{ inputs.boolValue == 'y' }}
+      shell: bash
+      run: ": When 'y': ${{ inputs.boolValue }}"
+
+    - if: ${{ inputs.boolValue == 'Y' }}
+      shell: bash
+      run: ": When 'Y': ${{ inputs.boolValue }}"
+
+    - if: ${{ inputs.boolValue == 'on' }}
+      shell: bash
+      run: ": When 'on': ${{ inputs.boolValue }}"
+
+    - if: ${{ inputs.boolValue == 'On' }}
+      shell: bash
+      run: ": When 'On': ${{ inputs.boolValue }}"
+
+    - if: ${{ inputs.boolValue == 1 }}
+      shell: bash
+      run: ": When 1: ${{ inputs.boolValue }}"
+
+    - if: ${{ inputs.boolValue == 0 }}
+      shell: bash
+      run: ": When 0: ${{ inputs.boolValue }}"
+
+    - if: ${{ inputs.boolValue == null }}
+      shell: bash
+      run: ": When null: ${{ inputs.boolValue }}"
+
+    - if: ${{ inputs.boolValue == 'null' }}
+      shell: bash
+      run: ": When 'null': ${{ inputs.boolValue }}"
+
+    - if: ${{ inputs.boolValue == '' }}
+      shell: bash
+      run: ": When '': ${{ inputs.boolValue }}"
+
+    - if: ${{ inputs.boolValue == NaN }}
+      shell: bash
+      run: ": When NaN: ${{ inputs.boolValue }}"
+
+    - if: ${{ inputs.boolValue == 'NaN' }}
+      shell: bash
+      run: ": When 'NaN': ${{ inputs.boolValue }}"

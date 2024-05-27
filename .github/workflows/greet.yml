@@ -1,4 +1,4 @@
-name: Greet Workflow
+name: Weird boolean in GitHub Actions
 
 on:
   push:
@@ -6,11 +6,7 @@ on:
       - main
   workflow_dispatch:
     inputs:
-      name:
-        description: "Your name"
-        required: false
-        default: "GitHub Actions"
-      usingEmoji:
+      boolValue:
         description: "Use emoji?"
         required: false
         default: y
@@ -22,74 +18,74 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: 'Pre-Main-Post (usingEmoji: inputs)'
+      - name: 'boolValue: ${{ github.event.inputs.boolValue }}'
+        if: ${{ github.event.inputs.boolValue != null }}
         uses: ./.github/actions/pre-main-post
         with:
-          usingEmoji: ${{ github.event.inputs.usingEmoji }}
+          boolValue: ${{ github.event.inputs.boolValue }}
 
-      - name: 'Pre-Main-Post (usingEmoji: true)'
+      - name: 'boolValue: true'
         uses: ./.github/actions/pre-main-post
         with:
-          usingEmoji: true
+          boolValue: true
 
-      - name: 'Pre-Main-Post (usingEmoji: True)'
+      - name: 'boolValue: false'
         uses: ./.github/actions/pre-main-post
         with:
-          usingEmoji: True
+          boolValue: false
 
-      - name: 'Pre-Main-Post (usingEmoji: yes)'
+      - name: 'boolValue: True'
         uses: ./.github/actions/pre-main-post
         with:
-          usingEmoji: yes
+          boolValue: True
 
-      - name: 'Pre-Main-Post (usingEmoji: Yes)'
+      - name: 'boolValue: yes'
         uses: ./.github/actions/pre-main-post
         with:
-          usingEmoji: Yes
+          boolValue: yes
 
-      - name: 'Pre-Main-Post (usingEmoji: on)'
+      - name: 'boolValue: Yes'
         uses: ./.github/actions/pre-main-post
         with:
-          usingEmoji: on
+          boolValue: Yes
 
-      - name: 'Pre-Main-Post (usingEmoji: Ob)'
+      - name: 'boolValue: on'
         uses: ./.github/actions/pre-main-post
         with:
-          usingEmoji: On
+          boolValue: on
 
-      - name: 'Pre-Main-Post (usingEmoji: off)'
+      - name: 'boolValue: On'
         uses: ./.github/actions/pre-main-post
         with:
-          usingEmoji: off
+          boolValue: On
 
-      - name: 'Pre-Main-Post (usingEmoji: Off)'
+      - name: 'boolValue: off'
         uses: ./.github/actions/pre-main-post
         with:
-          usingEmoji: Off
+          boolValue: off
 
-      - name: 'Pre-Main-Post (usingEmoji: 1)'
+      - name: 'boolValue: Off'
         uses: ./.github/actions/pre-main-post
         with:
-          usingEmoji: 1
+          boolValue: Off
 
-      - name: 'Pre-Main-Post (usingEmoji: 0)'
+      - name: 'boolValue: 1'
         uses: ./.github/actions/pre-main-post
         with:
-          usingEmoji: 0
+          boolValue: 1
 
-      - name: "Pre-Main-Post (usingEmoji: '')"
+      - name: 'boolValue: 0'
         uses: ./.github/actions/pre-main-post
         with:
-          usingEmoji: ''
+          boolValue: 0
 
-      - name: 'Pre-Main-Post (usingEmoji: null)'
+      - name: "boolValue: ''"
         uses: ./.github/actions/pre-main-post
         with:
-          usingEmoji: null
+          boolValue: ''
 
-      - name: Greet
-        run: echo "Hello ${{ github.event.inputs.name }}!"
+      - name: 'boolValue: null'
+        uses: ./.github/actions/pre-main-post
+        with:
+          boolValue: null
 
-      - name: Greet with emoji
-        if: ${{ github.event.inputs.usingEmoji }}
-        run: echo "👋 ${{ github.event.inputs.name }}!"
