@@ -18,63 +18,63 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: 'boolValue: ${{ github.event.inputs.boolValue }}'
+      - name: "boolValue: ${{ github.event.inputs.boolValue }}"
         if: ${{ github.event.inputs.boolValue != null }}
         uses: ./.github/actions/boolean-comparison
         with:
           boolValue: ${{ github.event.inputs.boolValue }}
 
-      - name: 'boolValue: true'
+      - name: "boolValue: true"
         uses: ./.github/actions/boolean-comparison
         with:
           boolValue: true
 
-      - name: 'boolValue: false'
+      - name: "boolValue: false"
         uses: ./.github/actions/boolean-comparison
         with:
           boolValue: false
 
-      - name: 'boolValue: True'
+      - name: "boolValue: True"
         uses: ./.github/actions/boolean-comparison
         with:
           boolValue: True
 
-      - name: 'boolValue: yes'
+      - name: "boolValue: yes"
         uses: ./.github/actions/boolean-comparison
         with:
           boolValue: yes
 
-      - name: 'boolValue: Yes'
+      - name: "boolValue: Yes"
         uses: ./.github/actions/boolean-comparison
         with:
           boolValue: Yes
 
-      - name: 'boolValue: on'
+      - name: "boolValue: on"
         uses: ./.github/actions/boolean-comparison
         with:
           boolValue: on
 
-      - name: 'boolValue: On'
+      - name: "boolValue: On"
         uses: ./.github/actions/boolean-comparison
         with:
           boolValue: On
 
-      - name: 'boolValue: off'
+      - name: "boolValue: off"
         uses: ./.github/actions/boolean-comparison
         with:
           boolValue: off
 
-      - name: 'boolValue: Off'
+      - name: "boolValue: Off"
         uses: ./.github/actions/boolean-comparison
         with:
           boolValue: Off
 
-      - name: 'boolValue: 1'
+      - name: "boolValue: 1"
         uses: ./.github/actions/boolean-comparison
         with:
           boolValue: 1
 
-      - name: 'boolValue: 0'
+      - name: "boolValue: 0"
         uses: ./.github/actions/boolean-comparison
         with:
           boolValue: 0
@@ -82,10 +82,24 @@ jobs:
       - name: "boolValue: ''"
         uses: ./.github/actions/boolean-comparison
         with:
-          boolValue: ''
+          boolValue: ""
 
-      - name: 'boolValue: null'
+      - name: "boolValue: null"
         uses: ./.github/actions/boolean-comparison
         with:
           boolValue: null
 
+      - name: "boolValue: fromJson('[]')"
+        uses: ./.github/actions/boolean-comparison
+        with:
+          boolValue: ${{ fromJson('[]') }}
+
+      - name: "boolValue: fromJson('{}')"
+        uses: ./.github/actions/boolean-comparison
+        with:
+          boolValue: ${{ fromJson('{}') }}
+
+      - name: "boolValue: fromJson('false')"
+        uses: ./.github/actions/boolean-comparison
+        with:
+          boolValue: ${{ fromJson('false') }}
