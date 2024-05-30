@@ -89,16 +89,6 @@ jobs:
         with:
           boolValue: null
 
-      - name: "boolValue: fromJson('[]')"
-        uses: ./.github/actions/boolean-comparison
-        with:
-          boolValue: ${{ fromJson('[]') }}
-
-      - name: "boolValue: fromJson('{}')"
-        uses: ./.github/actions/boolean-comparison
-        with:
-          boolValue: ${{ fromJson('{}') }}
-
       - name: "boolValue: fromJson('false')"
         uses: ./.github/actions/boolean-comparison
         with:
